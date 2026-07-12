@@ -17,6 +17,7 @@
     --mint: #5EEAD4;
     --amber: #F5A623;
     --rose: #F2667E;
+    --violet: #A78BFA;
     --mono: 'JetBrains Mono', monospace;
     --serif: 'Fraunces', serif;
   }
@@ -304,6 +305,39 @@
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior: auto; }
   }
+
+  /* ---------- AVANCE 2 — variables y componentes ---------- */
+  .nav-avance{
+    font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--violet); border: 1px solid var(--violet);
+    border-radius: 20px; padding: 4px 14px; white-space: nowrap;
+    text-decoration: none;
+  }
+  .anim-box{
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 6px; overflow: hidden;
+  }
+  .anim-box canvas{ display: block; width: 100%; height: auto; }
+  .anim-caption{
+    padding: 16px 20px; font-size: 0.78rem;
+    color: var(--text-dim); line-height: 1.5;
+    border-top: 1px solid var(--line);
+  }
+  .anim-caption strong{ color: var(--text); }
+  .anim-controls{ display:flex; gap: 8px; padding: 12px 20px 0; }
+  .anim-btn{
+    font-family: var(--mono); font-size: 0.65rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent; color: var(--violet);
+    border: 1px solid var(--violet); border-radius: 3px;
+    padding: 5px 14px; cursor: pointer; transition: all 0.2s;
+  }
+  .anim-btn:hover{ background: var(--violet); color: var(--bg); }
+  .anim-label{
+    font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-dim); padding: 10px 20px 0;
+  }
+
 </style>
 </head>
 <body>
@@ -323,6 +357,7 @@
       <a href="#s5a">S5 Impulso</a>
       <a href="#s5b">S5 Colisiones</a>
     </nav>
+    <a href="#avance2" class="nav-avance">Avance 2 ↓</a>
   </div>
 </header>
 
@@ -337,7 +372,7 @@
 
   <div class="hero-meta">
     <div>
-      <!-- <div class="k">Cobertura</div> -->
+      <div class="k">Cobertura</div>
       <div class="v">Semanas <span>2–5</span></div>
     </div>
     <div>
@@ -401,7 +436,7 @@
           <strong>Por qué física y no valores fijos</strong>
           Si la posición del dron se moviera con desplazamientos fijos por fotograma (ej. "+1 en X cada frame"),
           el vuelo se vería mecánico y el viento no podría "empujar" de forma creíble. Al tratar X, Y y Z como
-          tres ecuaciones de movimiento independientes que se suman como vectores, el motor puede combinar
+          tres ecuaciones de movimiento independientes que se sUMAN como vectores, el motor puede combinar
           gravedad, empuje del rotor y viento en una sola trayectoria realista, sin necesidad de animar cada
           posición a mano.
         </div>
@@ -970,5 +1005,732 @@
 
 </main>
 
+
+
+<!-- ================================================================ -->
+<!-- ========================= AVANCE 2 ============================= -->
+<!-- ================================================================ -->
+<div id="avance2" style="scroll-margin-top:80px; position:relative; z-index:1;">
+
+  <div style="max-width:1100px; margin:0 auto; padding:80px 28px 0;">
+    <div style="font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+                color:#A78BFA; margin-bottom:22px; display:flex; align-items:center; gap:10px;">
+      <span style="width:28px;height:1px;background:#A78BFA;display:inline-block;"></span>
+      Física I
+    </div>
+    <h2 style="font-family:var(--serif); font-weight:600;
+               font-size:clamp(2.2rem,5vw,3.8rem); line-height:1.05;
+               letter-spacing:-0.01em; max-width:14ch;">
+      El giro, la fuerza y el
+      <em style="font-style:italic; font-weight:300; color:#A78BFA;">cosmos</em>
+      en código.
+    </h2>
+    <p style="margin-top:22px; max-width:56ch; color:var(--text-dim); font-size:0.95rem;">
+      Segunda entrega: momento angular, torque, satélites y exploración espacial.
+    </p>
+    <div style="margin-top:36px; display:flex; gap:8px; flex-wrap:wrap; padding-bottom:16px;">
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Conservación Momento Angular</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Torque</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Satélites Artificiales</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Análisis / Exploración Espacial</span>
+    </div>
+    <div style="display:flex; gap:4px; flex-wrap:wrap; padding-bottom:10px;">
+      <a href="#s6a" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S6 Angular</a>
+      <a href="#s6b" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S6 Torque</a>
+      <a href="#s8a" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S8 Satélites</a>
+      <a href="#s8b" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S8 Exploración</a>
+    </div>
+  </div>
+
+  <main id="main-a2" style="position:relative; z-index:1;">
+<!-- ====================== S6A — MOMENTO ANGULAR ====================== -->
+<article class="entry" id="s6a">
+  <div class="entry-head">
+    <div class="week-mark">06</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Rotación · Conservación del Momento Angular</div>
+      <h2>Patinadora que acelera al juntar los brazos</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En un juego de simulación deportiva tipo <strong>Winter Sports</strong> o en el motor de
+          animación de un personaje que hace piruetas, cuando la patinadora extiende los brazos gira
+          lentamente; al juntarlos, su radio de inercia baja y automáticamente gira más rápido,
+          sin ningún motor externo aplicando fuerza.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">L = I·ω = constante &nbsp;→&nbsp; I₁·ω₁ = I₂·ω₂</div>
+        <div class="eq-name">Conservación del momento angular: si no hay torque externo, L no cambia</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no animación manual</strong>
+        Una alternativa no física sería animar a mano las dos velocidades de giro (brazos abiertos y brazos
+        cerrados) como dos clips de animación distintos. Eso hace imposible que el jugador interactúe en
+        tiempo real: si el usuario puede abrir y cerrar los brazos gradualmente, necesita infinitos clips
+        intermedios. Con L = I·ω constante, el motor calcula ω₂ = I₁·ω₁ / I₂ en cada frame según la
+        posición actual de los brazos, produciendo una respuesta continua y físicamente correcta con una
+        sola ecuación.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Momento angular L (conservado)</div>
+        <div class="anim-controls">
+          <button class="anim-btn" id="btn6a">▶ Iniciar</button>
+        </div>
+        <canvas id="c6a" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> al deslizar los brazos hacia el cuerpo (I ↓), la velocidad angular
+          ω sube automáticamente para conservar L = I·ω. El indicador en pantalla muestra I y ω en tiempo real.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S6B — TORQUE ====================== -->
+<article class="entry" id="s6b">
+  <div class="entry-head">
+    <div class="week-mark">06</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Rotación · Torque</div>
+      <h2>Brazo robótico en un juego de ingeniería</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En un juego de construcción robótica tipo <strong>Kerbal Space Program</strong> o
+          <strong>Opus Magnum</strong>, el brazo mecánico aplica fuerza en el extremo para rotar un
+          segmento: cuanto más largo el brazo y más perpendicular la fuerza, mayor la rotación lograda
+          con el mismo motor.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">τ = r × F = r·F·sin(θ)</div>
+        <div class="eq-name">Torque: fuerza aplicada a distancia r del pivote, con ángulo θ entre r y F</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no valores fijos</strong>
+        Sin torque, el motor del juego asignaría una velocidad de giro fija al brazo sin importar dónde ni
+        cómo se aplique la fuerza. Con τ = r·F·sin(θ), el jugador que ubica el motor más lejos del pivote
+        obtiene automáticamente más torque con la misma potencia — exactamente como en la realidad — creando
+        decisiones de diseño mecánicamente interesantes sin lógica especial.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Arrastra la fuerza para cambiar el ángulo θ</div>
+        <div class="anim-controls">
+          <button class="anim-btn" id="btn6b">▶ Iniciar</button>
+        </div>
+        <canvas id="c6b" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> el brazo rota bajo el torque τ = r·F·sin(θ). El torque efectivo
+          (en verde) cae a cero cuando la fuerza es paralela al brazo (θ = 0°), y es máximo cuando es perpendicular.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S8A — SATÉLITES ====================== -->
+<article class="entry" id="s8a">
+  <div class="entry-head">
+    <div class="week-mark">08</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Gravitación · Satélites Artificiales</div>
+      <h2>Simulación de órbita para un satélite de comunicaciones</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En una aplicación de simulación de redes satelitales tipo <strong>Orbital Simulator</strong>
+          o herramientas reales como <strong>STK (Systems Tool Kit)</strong>, calcular la velocidad orbital
+          de un satélite en función de su altitud determina si permanece en órbita o escapa hacia el espacio.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">v = √(G·M / r)</div>
+        <div class="eq-name">Velocidad orbital circular: la gravedad provee exactamente la fuerza centrípeta necesaria</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no trayectoria fija</strong>
+        Codificar la trayectoria como una elipse predefinida en el motor gráfico solo funciona para una
+        altitud específica. Con v = √(GM/r), el simulador puede colocar el satélite a cualquier altitud
+        y calcular automáticamente la velocidad correcta para mantenerlo en órbita estable, lo que permite
+        comparar órbitas LEO (baja), MEO y GEO sin recodificar la trayectoria de cada una.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Órbita en tiempo real — usa los botones para cambiar altitud</div>
+        <div class="anim-controls">
+          <button class="anim-btn" id="btn8a-leo">LEO</button>
+          <button class="anim-btn" id="btn8a-meo">MEO</button>
+          <button class="anim-btn" id="btn8a-geo">GEO</button>
+        </div>
+        <canvas id="c8a" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> el satélite orbita con v = √(GM/r). A mayor altitud (r mayor),
+          la velocidad orbital es menor y el período aumenta — observable directamente cambiando entre LEO, MEO y GEO.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S8B — EXPLORACIÓN ESPACIAL ====================== -->
+<article class="entry" id="s8b">
+  <div class="entry-head">
+    <div class="week-mark">08</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Gravitación · Análisis y Exploración Espacial</div>
+      <h2>Maniobra de transferencia orbital (Hohmann) en simulador de misiones</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En <strong>Kerbal Space Program</strong> o en simuladores de misiones reales, para mover una nave
+          de una órbita baja a una alta sin consumir combustible de más, se usa la transferencia de Hohmann:
+          dos quemados cortos en puntos exactos de la trayectoria aprovechan la inercia acumulada.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">Δv = v₂ − v₁ &nbsp; (en cada quemado)</div>
+        <div class="eq-name">Cambio de velocidad necesario para pasar de órbita r₁ a órbita r₂ (Hohmann)</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no ruta libre</strong>
+        Mover una nave "en línea recta" entre dos órbitas requeriría combustible continuo durante todo el
+        trayecto. La transferencia de Hohmann, calculada con Δv = v₂ − v₁ en dos puntos precisos, es la
+        ruta energéticamente más eficiente entre dos órbitas circulares coplanares. En software, esto
+        permite al motor optimizar misiones automáticamente: dado destino y combustible disponible, calcula
+        si la maniobra es factible en una sola ecuación.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Transferencia de Hohmann — presiona el botón para ejecutar la maniobra</div>
+        <div class="anim-controls">
+          <button class="anim-btn" id="btn8b">🚀 Ejecutar Hohmann</button>
+        </div>
+        <canvas id="c8b" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> fase 1: la nave aplica Δv₁ en perigeo y entra en la elipse de
+          transferencia; fase 2: al llegar al apogeo aplica Δv₂ y circulariza en la órbita alta.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  </main>
+
+</div>
+
+
+
+<script>
+// ─── utilidades ────────────────────────────────────────────────────────────────
+const PI2 = Math.PI * 2;
+function lerp(a,b,t){ return a + (b-a)*t; }
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+
+// ─── ANIMACIÓN 6A: Patinadora / Momento Angular ─────────────────────────────
+(function(){
+  const canvas = document.getElementById('c6a');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W/2, CY = H/2;
+
+  let angle = 0;
+  let armRadius = 90; // radio actual de brazos (px), max=90 min=20
+  let running = false;
+  let raf = null;
+  let expanding = false;
+  let contractTimer = 0;
+  const ARM_MAX = 90, ARM_MIN = 22;
+  const I_base = 1; // I proporcional a r^2
+  const L = I_base * ARM_MAX * ARM_MAX * 0.8; // L constante
+
+  function getOmega(r){ return L / (r * r); }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const r = armRadius;
+    const omega = getOmega(r);
+
+    // fondo sutil
+    ctx.fillStyle = '#0B1220';
+    ctx.fillRect(0,0,W,H);
+
+    // trazo circular del giro (fantasma)
+    ctx.beginPath();
+    ctx.arc(CX, CY, r + 10, 0, PI2);
+    ctx.strokeStyle = 'rgba(167,139,250,0.07)';
+    ctx.lineWidth = 12;
+    ctx.stroke();
+
+    // cuerpo central
+    ctx.beginPath();
+    ctx.arc(CX, CY, 18, 0, PI2);
+    ctx.fillStyle = '#E7ECF5';
+    ctx.fill();
+
+    // brazos
+    const ax = CX + Math.cos(angle) * r;
+    const ay = CY + Math.sin(angle) * r;
+    const bx = CX - Math.cos(angle) * r;
+    const by = CY - Math.sin(angle) * r;
+
+    ctx.beginPath();
+    ctx.moveTo(ax, ay); ctx.lineTo(bx, by);
+    ctx.strokeStyle = '#A78BFA';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // manos
+    ctx.beginPath(); ctx.arc(ax, ay, 7, 0, PI2);
+    ctx.fillStyle = '#A78BFA'; ctx.fill();
+    ctx.beginPath(); ctx.arc(bx, by, 7, 0, PI2);
+    ctx.fillStyle = '#A78BFA'; ctx.fill();
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.75)';
+    ctx.fillRect(8, 8, 190, 72);
+    ctx.fillStyle = '#8493B0';
+    ctx.font = '10px JetBrains Mono';
+    ctx.fillText('I  (inercia)   :', 14, 26);
+    ctx.fillText('ω  (vel. ang.)  :', 14, 44);
+    ctx.fillText('L  (conservado) :', 14, 62);
+    ctx.fillStyle = '#A78BFA';
+    ctx.fillText((r*r/ARM_MAX/ARM_MAX).toFixed(3) + ' u.a.', 140, 26);
+    ctx.fillText(omega.toFixed(3) + ' rad/s', 140, 44);
+    ctx.fillStyle = '#5EEAD4';
+    ctx.fillText(L.toFixed(2) + ' u.a.', 140, 62);
+
+    // indicador de velocidad (arco)
+    const arcLen = clamp(omega / 8, 0, 1) * PI2;
+    ctx.beginPath();
+    ctx.arc(CX, CY, 30, -Math.PI/2, -Math.PI/2 + arcLen);
+    ctx.strokeStyle = '#5EEAD4';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  }
+
+  function step(){
+    if(!running) return;
+    const omega = getOmega(armRadius);
+    angle += omega * 0.016;
+
+    contractTimer++;
+    if(contractTimer < 90){
+      armRadius = lerp(armRadius, ARM_MIN, 0.035);
+    } else if(contractTimer < 180){
+      armRadius = lerp(armRadius, ARM_MAX, 0.035);
+    } else {
+      contractTimer = 0;
+    }
+
+    draw();
+    raf = requestAnimationFrame(step);
+  }
+
+  document.getElementById('btn6a').addEventListener('click', function(){
+    running = !running;
+    this.textContent = running ? '⏸ Pausar' : '▶ Iniciar';
+    if(running){ contractTimer = 0; step(); }
+    else cancelAnimationFrame(raf);
+  });
+
+  draw();
+})();
+
+// ─── ANIMACIÓN 6B: Torque / Brazo robótico ──────────────────────────────────
+(function(){
+  const canvas = document.getElementById('c6b');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const PIVOT = {x: W/2, y: H/2 + 20};
+  const ARM_LEN = 110;
+
+  let running = false;
+  let raf = null;
+  let armAngle = -Math.PI/4; // ángulo del brazo respecto a horizontal
+  let forceAngle = Math.PI/2; // ángulo de la fuerza respecto al brazo (θ en τ=r·F·sin θ)
+  let omega = 0;
+  const F_MAG = 1.8;
+  const I = 0.45;
+
+  function getTorque(){
+    return ARM_LEN * F_MAG * Math.sin(forceAngle) / 1000;
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220';
+    ctx.fillRect(0,0,W,H);
+
+    const ex = PIVOT.x + Math.cos(armAngle) * ARM_LEN;
+    const ey = PIVOT.y + Math.sin(armAngle) * ARM_LEN;
+
+    // brazo
+    ctx.beginPath();
+    ctx.moveTo(PIVOT.x, PIVOT.y); ctx.lineTo(ex, ey);
+    ctx.strokeStyle = '#E7ECF5'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+    ctx.stroke();
+
+    // pivote
+    ctx.beginPath(); ctx.arc(PIVOT.x, PIVOT.y, 10, 0, PI2);
+    ctx.fillStyle = '#233155'; ctx.fill();
+    ctx.strokeStyle = '#8493B0'; ctx.lineWidth = 2; ctx.stroke();
+
+    // extremo del brazo
+    ctx.beginPath(); ctx.arc(ex, ey, 7, 0, PI2);
+    ctx.fillStyle = '#A78BFA'; ctx.fill();
+
+    // vector de fuerza (absoluto)
+    const fa = armAngle + forceAngle;
+    const fx = ex + Math.cos(fa) * 55;
+    const fy = ey + Math.sin(fa) * 55;
+    drawArrow(ctx, ex, ey, fx, fy, '#F5A623', 2.5);
+    ctx.fillStyle = '#F5A623'; ctx.font = '11px JetBrains Mono';
+    ctx.fillText('F', fx + 5, fy);
+
+    // componente perpendicular (τ efectivo)
+    const perp_a = armAngle + Math.PI/2;
+    const teff = Math.sin(forceAngle);
+    const px = ex + Math.cos(perp_a) * 55 * teff;
+    const py = ey + Math.sin(perp_a) * 55 * teff;
+    drawArrow(ctx, ex, ey, px, py, '#5EEAD4', 2);
+    ctx.fillStyle = '#5EEAD4'; ctx.font = '10px JetBrains Mono';
+    ctx.fillText('F⊥', px + 4, py - 4);
+
+    // ángulo θ arc
+    ctx.beginPath();
+    ctx.arc(ex, ey, 22, armAngle, armAngle + forceAngle, forceAngle < 0);
+    ctx.strokeStyle = '#A78BFA'; ctx.lineWidth = 1.5; ctx.stroke();
+    const ta = armAngle + forceAngle * 0.5;
+    ctx.fillStyle = '#A78BFA'; ctx.font = '10px JetBrains Mono';
+    ctx.fillText('θ', ex + Math.cos(ta)*28, ey + Math.sin(ta)*28);
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.8)';
+    ctx.fillRect(8, 8, 200, 72);
+    ctx.font = '10px JetBrains Mono';
+    ctx.fillStyle = '#8493B0';
+    ctx.fillText('θ  (ángulo F-brazo) :', 14, 26);
+    ctx.fillText('τ  (torque efect.)  :', 14, 44);
+    ctx.fillText('ω  (vel. ang.)      :', 14, 62);
+    ctx.fillStyle = '#A78BFA';
+    ctx.fillText((forceAngle * 180/Math.PI).toFixed(1)+'°', 170, 26);
+    ctx.fillStyle = '#5EEAD4';
+    ctx.fillText((getTorque()*1000).toFixed(1)+' u.a.', 170, 44);
+    ctx.fillStyle = '#F5A623';
+    ctx.fillText(omega.toFixed(3)+' r/s', 170, 62);
+  }
+
+  function drawArrow(ctx, x1,y1,x2,y2,color,lw){
+    const dx = x2-x1, dy = y2-y1;
+    const len = Math.sqrt(dx*dx+dy*dy);
+    if(len < 2) return;
+    const ux = dx/len, uy = dy/len;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+    ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';
+    ctx.stroke();
+    const hw = 7;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - ux*hw - uy*hw*0.5, y2 - uy*hw + ux*hw*0.5);
+    ctx.lineTo(x2 - ux*hw + uy*hw*0.5, y2 - uy*hw - ux*hw*0.5);
+    ctx.closePath(); ctx.fillStyle = color; ctx.fill();
+  }
+
+  function step(){
+    if(!running) return;
+    // θ oscila para mostrar cómo cambia el torque
+    forceAngle = Math.PI/2 + Math.sin(Date.now()/1200) * Math.PI * 0.45;
+    const tau = getTorque();
+    omega = lerp(omega, tau * 18, 0.08);
+    armAngle += omega * 0.016;
+    draw();
+    raf = requestAnimationFrame(step);
+  }
+
+  document.getElementById('btn6b').addEventListener('click', function(){
+    running = !running;
+    this.textContent = running ? '⏸ Pausar' : '▶ Iniciar';
+    if(running) step();
+    else cancelAnimationFrame(raf);
+  });
+
+  draw();
+})();
+
+// ─── ANIMACIÓN 8A: Satélites / Órbitas ──────────────────────────────────────
+(function(){
+  const canvas = document.getElementById('c8a');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W/2, CY = H/2;
+
+  const ORBITS = {
+    LEO: { r: 60,  color: '#5EEAD4', label: 'LEO · ~400 km',   period: 160  },
+    MEO: { r: 100, color: '#F5A623', label: 'MEO · ~20,000 km', period: 280  },
+    GEO: { r: 140, color: '#A78BFA', label: 'GEO · ~36,000 km', period: 440  },
+  };
+
+  let active = 'LEO';
+  let angle = 0;
+  let raf = null;
+  let lastTime = null;
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = (ts - lastTime) / 1000;
+    lastTime = ts;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220';
+    ctx.fillRect(0,0,W,H);
+
+    // stars
+    const stars = [[30,40],[80,20],[150,60],[320,30],[370,80],[50,200],[340,200],[380,250],[20,260],[100,280],[310,270],[190,15]];
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    stars.forEach(([x,y])=>{ ctx.beginPath(); ctx.arc(x,y,1,0,PI2); ctx.fill(); });
+
+    // tierra
+    const grd = ctx.createRadialGradient(CX,CY,10,CX,CY,38);
+    grd.addColorStop(0,'#2563EB'); grd.addColorStop(1,'#1E3A6E');
+    ctx.beginPath(); ctx.arc(CX,CY,38,0,PI2);
+    ctx.fillStyle = grd; ctx.fill();
+    // atm
+    ctx.beginPath(); ctx.arc(CX,CY,44,0,PI2);
+    ctx.strokeStyle = 'rgba(96,165,250,0.15)'; ctx.lineWidth = 8; ctx.stroke();
+
+    // todas las órbitas (traza)
+    Object.entries(ORBITS).forEach(([k,o])=>{
+      ctx.beginPath(); ctx.arc(CX,CY,o.r,0,PI2);
+      ctx.strokeStyle = k===active ? o.color : 'rgba(255,255,255,0.06)';
+      ctx.lineWidth = k===active ? 1.5 : 1;
+      ctx.setLineDash([3,5]); ctx.stroke(); ctx.setLineDash([]);
+    });
+
+    const orb = ORBITS[active];
+    const omega = PI2 / (orb.period / 60); // rad/s visual
+    angle += omega * dt;
+
+    const sx = CX + Math.cos(angle) * orb.r;
+    const sy = CY + Math.sin(angle) * orb.r;
+
+    // satélite
+    ctx.beginPath(); ctx.arc(sx, sy, 6, 0, PI2);
+    ctx.fillStyle = orb.color; ctx.fill();
+    // panel solar
+    const pa = angle + Math.PI/2;
+    ctx.beginPath();
+    ctx.moveTo(sx + Math.cos(pa)*12, sy + Math.sin(pa)*12);
+    ctx.lineTo(sx - Math.cos(pa)*12, sy - Math.sin(pa)*12);
+    ctx.strokeStyle = '#F5A623'; ctx.lineWidth = 3; ctx.stroke();
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 210, 82);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('Órbita activa :', 14, 26);
+    ctx.fillText('Radio (r)     :', 14, 44);
+    ctx.fillText('v ∝ 1/√r      :', 14, 62);
+    ctx.fillText('Período       :', 14, 80);
+    ctx.fillStyle = orb.color;
+    ctx.fillText(active, 120, 26);
+    ctx.fillStyle = '#E7ECF5';
+    ctx.fillText(orb.label.split('·')[1].trim(), 120, 44);
+    const vrel = (Math.sqrt(60/orb.r)).toFixed(3);
+    ctx.fillStyle = '#5EEAD4';
+    ctx.fillText(vrel + ' (relativa)', 120, 62);
+    ctx.fillStyle = '#A78BFA';
+    ctx.fillText((orb.period/60).toFixed(1)+'h simbólico', 120, 80);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  ['leo','meo','geo'].forEach(k=>{
+    document.getElementById('btn8a-'+k).addEventListener('click', ()=>{
+      active = k.toUpperCase();
+      angle = 0; lastTime = null;
+    });
+  });
+
+  raf = requestAnimationFrame(draw);
+})();
+
+// ─── ANIMACIÓN 8B: Hohmann Transfer ─────────────────────────────────────────
+(function(){
+  const canvas = document.getElementById('c8b');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W/2, CY = H/2;
+
+  const R1 = 60;  // órbita baja
+  const R2 = 140; // órbita alta
+  const Rt = (R1+R2)/2; // semi-eje mayor de la elipse de transferencia
+
+  let phase = 'orbit1'; // orbit1 → burn1 → transfer → burn2 → orbit2 → reset
+  let angle = 0;
+  let raf = null;
+  let lastTime = null;
+  let phaseTimer = 0;
+  let showDv1 = false, showDv2 = false;
+
+  const MSG = {
+    orbit1:   'Nave en órbita baja (LEO)',
+    burn1:    '🔥 Quemado 1: Δv₁ aplicado en perigeo',
+    transfer: 'Elipse de transferencia (semi-mayor)',
+    burn2:    '🔥 Quemado 2: Δv₂ aplicado en apogeo',
+    orbit2:   '✅ Nave en órbita alta (GEO)',
+  };
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = (ts - lastTime)/1000;
+    lastTime = ts;
+    phaseTimer += dt;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // estrellas
+    [[20,20],[360,15],[50,280],[370,270],[180,10],[390,150],[10,150]].forEach(([x,y])=>{
+      ctx.beginPath(); ctx.arc(x,y,1.2,0,PI2);
+      ctx.fillStyle='rgba(255,255,255,0.35)'; ctx.fill();
+    });
+
+    // tierra
+    const g = ctx.createRadialGradient(CX,CY,8,CX,CY,36);
+    g.addColorStop(0,'#2563EB'); g.addColorStop(1,'#1E3A6E');
+    ctx.beginPath(); ctx.arc(CX,CY,36,0,PI2); ctx.fillStyle=g; ctx.fill();
+
+    // órbita 1
+    ctx.beginPath(); ctx.arc(CX,CY,R1,0,PI2);
+    ctx.strokeStyle='rgba(94,234,212,0.25)'; ctx.lineWidth=1.5; ctx.setLineDash([3,5]); ctx.stroke();
+
+    // órbita 2
+    ctx.beginPath(); ctx.arc(CX,CY,R2,0,PI2);
+    ctx.strokeStyle='rgba(167,139,250,0.25)'; ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
+
+    // elipse de transferencia (siempre dibujada, resaltada en fase transfer)
+    ctx.save();
+    ctx.translate(CX, CY);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, R2, Rt, 0, 0, PI2);
+    const tActive = phase==='transfer'||phase==='burn1'||phase==='burn2';
+    ctx.strokeStyle = tActive ? 'rgba(245,166,35,0.55)' : 'rgba(245,166,35,0.12)';
+    ctx.lineWidth = tActive ? 2 : 1;
+    ctx.setLineDash([4,4]); ctx.stroke(); ctx.setLineDash([]);
+    ctx.restore();
+
+    // nave
+    let sx, sy;
+    if(phase==='orbit1'){
+      const w1 = PI2 / 2.8;
+      angle += w1 * dt;
+      sx = CX + Math.cos(angle)*R1; sy = CY + Math.sin(angle)*R1;
+      if(phaseTimer > 2.2){ phase='burn1'; phaseTimer=0; showDv1=true; }
+    } else if(phase==='burn1'){
+      sx = CX + R1; sy = CY;
+      angle = 0;
+      if(phaseTimer > 0.9){ phase='transfer'; phaseTimer=0; showDv1=false; }
+    } else if(phase==='transfer'){
+      const progress = clamp(phaseTimer/4.5, 0, 1);
+      const ta = Math.PI * progress; // 0 → π (perigeo a apogeo)
+      const rx = Math.cos(ta) * R2;
+      const ry = Math.sin(ta) * Rt;
+      sx = CX + rx; sy = CY + ry;
+      if(progress >= 1){ phase='burn2'; phaseTimer=0; showDv2=true; }
+    } else if(phase==='burn2'){
+      sx = CX - R2; sy = CY;
+      if(phaseTimer > 0.9){ phase='orbit2'; phaseTimer=0; showDv2=false; angle=Math.PI; }
+    } else if(phase==='orbit2'){
+      const w2 = PI2 / 5.2;
+      angle += w2 * dt;
+      sx = CX + Math.cos(angle)*R2; sy = CY + Math.sin(angle)*R2;
+      if(phaseTimer > 3.5){ phase='orbit1'; phaseTimer=0; angle=0; }
+    }
+
+    // dibuja nave
+    ctx.beginPath(); ctx.arc(sx, sy, 5.5, 0, PI2);
+    const shipColor = (phase==='orbit2') ? '#A78BFA' : '#5EEAD4';
+    ctx.fillStyle = shipColor; ctx.fill();
+
+    // paneles solares
+    const pa = Math.atan2(sy-CY, sx-CX) + Math.PI/2;
+    ctx.beginPath();
+    ctx.moveTo(sx+Math.cos(pa)*11, sy+Math.sin(pa)*11);
+    ctx.lineTo(sx-Math.cos(pa)*11, sy-Math.sin(pa)*11);
+    ctx.strokeStyle='#F5A623'; ctx.lineWidth=3; ctx.stroke();
+
+    // Δv labels
+    if(showDv1){
+      ctx.fillStyle='rgba(245,166,35,0.9)';
+      ctx.font='bold 11px JetBrains Mono';
+      ctx.fillText('Δv₁ →', sx+8, sy-10);
+    }
+    if(showDv2){
+      ctx.fillStyle='rgba(245,166,35,0.9)';
+      ctx.font='bold 11px JetBrains Mono';
+      ctx.fillText('← Δv₂', sx-60, sy-10);
+    }
+
+    // leyenda
+    ctx.fillStyle='rgba(11,18,32,0.82)'; ctx.fillRect(8,8,220,48);
+    ctx.font='10px JetBrains Mono'; ctx.fillStyle='#8493B0';
+    ctx.fillText('Fase :', 14, 24);
+    ctx.fillStyle = '#F5A623';
+    ctx.fillText(MSG[phase]||phase, 14, 42);
+
+    // etiquetas órbitas
+    ctx.font='9px JetBrains Mono';
+    ctx.fillStyle='rgba(94,234,212,0.6)'; ctx.fillText('LEO', CX + R1 + 4, CY - 6);
+    ctx.fillStyle='rgba(167,139,250,0.6)'; ctx.fillText('GEO', CX + R2 + 4, CY - 6);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  document.getElementById('btn8b').addEventListener('click', ()=>{
+    phase='orbit1'; angle=0; lastTime=null; phaseTimer=0;
+    showDv1=false; showDv2=false;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(draw);
+  });
+
+  raf = requestAnimationFrame(draw);
+})();
+</script>
 </body>
 </html>
