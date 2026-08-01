@@ -80,7 +80,7 @@
     display:block;
   }
   nav{
-    display:flex; gap: 4px;
+    display:flex; gap: 6px;
     overflow-x: auto;
     scrollbar-width: none;
   }
@@ -90,19 +90,20 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-dim);
-    padding: 8px 12px;
-    border: 1px solid transparent;
-    border-radius: 3px;
+    padding: 8px 16px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
     white-space: nowrap;
     transition: all 0.2s ease;
   }
-  nav a:hover{ color: var(--mint); border-color: var(--line); background: var(--panel); }
+  nav a:hover{ color: var(--mint); border-color: var(--mint); background: var(--panel); }
 
   /* ---------- HERO ---------- */
   .hero{
     position: relative; z-index:1;
     max-width: 1100px; margin: 0 auto;
     padding: 90px 28px 70px;
+    scroll-margin-top: 90px;
   }
   .hero-eyebrow{
     font-size: 0.72rem;
@@ -324,7 +325,7 @@
     border-top: 1px solid var(--line);
   }
   .anim-caption strong{ color: var(--text); }
-  .anim-controls{ display:flex; gap: 8px; padding: 12px 20px 0; }
+  .anim-controls{ display:flex; gap: 8px; padding: 12px 20px 0; flex-wrap: wrap; }
   .anim-btn{
     font-family: var(--mono); font-size: 0.65rem;
     letter-spacing: 0.1em; text-transform: uppercase;
@@ -338,6 +339,11 @@
     color: var(--text-dim); padding: 10px 20px 0;
   }
 
+  /* ---------- AVANCE 3 — acento rose ---------- */
+  .anim-btn.rose{ color: var(--rose); border-color: var(--rose); }
+  .anim-btn.rose:hover{ background: var(--rose); color: var(--bg); }
+  .anim-btn.rose.active{ background: var(--rose); color: var(--bg); }
+
 </style>
 </head>
 <body>
@@ -348,20 +354,14 @@
       <span>Física<span class="dot">·</span>Software</span>
     </div>
     <nav>
-      <a href="#s2a">S2 3D</a>
-      <a href="#s2b">S2 Circular</a>
-      <a href="#s3a">S3 Centrípeta</a>
-      <a href="#s3b">S3 Fricción</a>
-      <a href="#s4a">S4 Trabajo</a>
-      <a href="#s4b">S4 Energía</a>
-      <a href="#s5a">S5 Impulso</a>
-      <a href="#s5b">S5 Colisiones</a>
+      <a href="#avance1">Avance 1</a>
+      <a href="#avance2">Avance 2</a>
+      <a href="#avance3">Avance 3</a>
     </nav>
-    <a href="#avance2" class="nav-avance">Avance 2 ↓</a>
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="avance1">
   <div class="hero-eyebrow">Física I</div>
   <h1 class="hero-title">La mecánica <em>detrás</em> del código que se mueve.</h1>
   <p class="hero-sub">
@@ -1034,12 +1034,6 @@
       <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Satélites Artificiales</span>
       <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Análisis / Exploración Espacial</span>
     </div>
-    <div style="display:flex; gap:4px; flex-wrap:wrap; padding-bottom:10px;">
-      <a href="#s6a" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S6 Angular</a>
-      <a href="#s6b" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S6 Torque</a>
-      <a href="#s8a" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S8 Satélites</a>
-      <a href="#s8b" style="font-size:0.72rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);padding:8px 12px;border:1px solid transparent;border-radius:3px;white-space:nowrap;">S8 Exploración</a>
-    </div>
   </div>
 
   <main id="main-a2" style="position:relative; z-index:1;">
@@ -1249,6 +1243,372 @@
     </div>
   </div>
 </article>
+  </main>
+
+</div>
+
+
+
+<!-- ================================================================ -->
+<!-- ========================= AVANCE 3 ============================= -->
+<!-- ================================================================ -->
+<div id="avance3" style="scroll-margin-top:80px; position:relative; z-index:1;">
+
+  <div style="max-width:1100px; margin:0 auto; padding:80px 28px 0;">
+    <div style="font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+                color:var(--rose); margin-bottom:22px; display:flex; align-items:center; gap:10px;">
+      <span style="width:28px;height:1px;background:var(--rose);display:inline-block;"></span>
+      Física I
+    </div>
+    <h2 style="font-family:var(--serif); font-weight:600;
+               font-size:clamp(2.2rem,5vw,3.8rem); line-height:1.05;
+               letter-spacing:-0.01em; max-width:15ch;">
+      Vibraciones, presión y el
+      <em style="font-style:italic; font-weight:300; color:var(--rose);">pulso</em>
+      de los fluidos.
+    </h2>
+    <p style="margin-top:22px; max-width:56ch; color:var(--text-dim); font-size:0.95rem;">
+      Entrega final: oscilaciones amortiguadas, ondas estacionarias y mecánica de fluidos.
+    </p>
+    <div style="margin-top:36px; display:flex; gap:8px; flex-wrap:wrap; padding-bottom:16px;">
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Movimiento Armónico Simple</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Péndulo de Torsión</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Ondas Estacionarias</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Presión Hidrostática</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Presión y Velocidad de un Fluido</span>
+      <span style="border:1px solid var(--line);padding:5px 10px;border-radius:3px;font-size:0.7rem;color:var(--text-dim);">Cavitación / Golpe de Ariete</span>
+    </div>
+  </div>
+
+  <main id="main-a3" style="position:relative; z-index:1;">
+
+<!-- ====================== S9A — MAS AMORTIGUADO ====================== -->
+<article class="entry" id="s9a">
+  <div class="entry-head">
+    <div class="week-mark">09</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Oscilaciones · Movimiento Armónico Simple Amortiguado</div>
+      <h2>Animaciones tipo "spring" en interfaces de usuario</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          Librerías de animación de interfaces como <strong>Framer Motion</strong> o
+          <strong>react-spring</strong>, muy usadas en desarrollo web y de apps, no mueven una tarjeta
+          o un modal con una curva de easing prefabricada: la tratan como una masa unida a un resorte
+          que se libera de golpe, así que se estira, rebota un poco de menos a más y se asienta —
+          igual que al abrir un cajón con resorte.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">m·x'' + b·x' + k·x = 0 &nbsp;→&nbsp; x(t) = A·e^(−γt}·cos(ω_d·t + φ)</div>
+        <div class="eq-name">Oscilador armónico amortiguado (γ = b/2m controla qué tan rápido "muere" el rebote)</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no una curva de easing prefabricada</strong>
+        Una animación con curvas fijas ("ease-out", "ease-in-out") se ve igual sin importar la distancia
+        que recorre el elemento, y no puede interrumpirse a mitad de camino sin verse cortada. Modelando
+        el movimiento como un oscilador amortiguado, un solo parámetro de rigidez (k) y otro de fricción (b)
+        generan automáticamente animaciones que se sienten "vivas" para cualquier distancia, y que además
+        pueden interrumpirse en cualquier instante conservando su velocidad real — algo que una curva
+        prefabricada no puede lograr.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Elige el tipo de amortiguación y dispara la tarjeta</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose active" id="btn9a-bajo">Sub-amortiguado</button>
+          <button class="anim-btn rose" id="btn9a-critico">Crítico</button>
+          <button class="anim-btn rose" id="btn9a-sobre">Sobre-amortiguado</button>
+          <button class="anim-btn rose" id="btn9a-play">▶ Disparar</button>
+        </div>
+        <canvas id="c9a" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> la tarjeta (arriba) sigue x(t) del oscilador amortiguado; abajo, la
+          curva x(t) muestra cómo cambia el rebote según γ — poco amortiguado oscila varias veces, crítico
+          llega sin rebotar en el menor tiempo posible, y sobre-amortiguado llega lento y sin pasarse.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S9B — PÉNDULO DE TORSIÓN ====================== -->
+<article class="entry" id="s9b">
+  <div class="entry-head">
+    <div class="week-mark">09</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Oscilaciones · Péndulo de Torsión</div>
+      <h2>Estabilización del gimbal de una cámara de drone</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          Retomando el drone del Avance 1 (Semana 2): el gimbal virtual que sostiene la cámara se modela
+          como un <strong>péndulo de torsión</strong>. Una ráfaga de viento simulada gira la cámara unos
+          grados fuera de su orientación neutra, y un "resorte de torsión" virtual la regresa al centro,
+          oscilando un par de veces antes de estabilizarse — igual que un gimbal físico real.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">τ = −κ·θ &nbsp;→&nbsp; I·θ'' + b·θ' + κ·θ = 0</div>
+        <div class="eq-name">Péndulo de torsión: torque restaurador proporcional al ángulo, con amortiguación b</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no "resetear" el ángulo al instante</strong>
+        La alternativa no física más simple sería que la cámara salte de golpe de vuelta a su ángulo
+        neutro apenas termina la ráfaga, lo cual se ve abrupto y poco creíble. Con τ = −κ·θ, el motor
+        obtiene automáticamente un regreso suave, con la cantidad justa de "bamboleo" según qué tan rígido
+        (κ) o amortiguado (b) se configure el gimbal, sin animar el retorno a mano.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Aplica una ráfaga de viento sobre la cámara</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose" id="btn9b">💨 Ráfaga de viento</button>
+        </div>
+        <canvas id="c9b" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> tras la ráfaga, el gimbal oscila alrededor de θ = 0° y se amortigua
+          hasta detenerse. El HUD muestra el ángulo θ y la velocidad angular ω en tiempo real.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S10A — ONDAS ESTACIONARIAS ====================== -->
+<article class="entry" id="s10a">
+  <div class="entry-head">
+    <div class="week-mark">10</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Ondas · Ondas Estacionarias en Instrumentos Musicales</div>
+      <h2>Síntesis de cuerda pulsada con el algoritmo Karplus-Strong</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          Sintetizadores de software y motores de audio de videojuegos (por ejemplo, simuladores de
+          guitarra o apps tipo <strong>GarageBand</strong>) generan el sonido de una cuerda pulsada con
+          el algoritmo <strong>Karplus-Strong</strong>, que en el fondo modela la misma física que una
+          cuerda real: una onda que rebota entre los dos extremos fijos y forma un patrón de onda
+          estacionaria con nodos y vientres.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">y(x,t) = 2A·sin(kx)·cos(ωt) &nbsp;,&nbsp; f_n = n·v / (2L)</div>
+        <div class="eq-name">Onda estacionaria en una cuerda fija en ambos extremos; armónicos f_n</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no una nota grabada</strong>
+        Grabar y reproducir una nota fija por cada tono posible requeriría miles de archivos de audio
+        (uno por nota y por longitud de cuerda). Con f_n = n·v/(2L), basta con conocer la longitud L y la
+        velocidad de onda v de la cuerda para calcular cualquier nota y sus armónicos en tiempo real,
+        permitiendo afinaciones alternativas o instrumentos virtuales de cualquier tamaño sin grabar nada nuevo.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Selecciona el armónico n de la cuerda</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose active" id="btn10a-1">n = 1</button>
+          <button class="anim-btn rose" id="btn10a-2">n = 2</button>
+          <button class="anim-btn rose" id="btn10a-3">n = 3</button>
+          <button class="anim-btn rose" id="btn10a-4">n = 4</button>
+        </div>
+        <canvas id="c10a" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> la cuerda vibra como onda estacionaria; los puntos rojos marcan los
+          nodos (sin movimiento) y los verdes los vientres (máxima amplitud). A mayor n, más nodos y mayor
+          frecuencia f_n.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S10B — PRESIÓN SOBRE PAREDES DE UN CONTENEDOR ====================== -->
+<article class="entry" id="s10b">
+  <div class="entry-head">
+    <div class="week-mark">10</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Mecánica de Fluidos · Presión sobre las Paredes de un Contenedor</div>
+      <h2>Simulador de represa/tanque en un juego de construcción</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En un juego de gestión de ciudades tipo <strong>Cities: Skylines</strong>, o en una herramienta
+          de ingeniería civil que simula una represa o un tanque de agua, el grosor y refuerzo necesarios
+          de la pared no pueden ser iguales en toda su altura: el agua empuja mucho más fuerte cerca del
+          fondo que cerca de la superficie.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">P(h) = ρ·g·h</div>
+        <div class="eq-name">Presión hidrostática: crece linealmente con la profundidad h</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no un valor de presión uniforme</strong>
+        Una alternativa no física sería aplicar la misma presión a toda la pared del tanque, lo que haría
+        que el software recomendara el mismo grosor de concreto arriba que abajo — un diseño real así
+        colapsaría. Con P(h) = ρ·g·h, el simulador calcula automáticamente que la base necesita mucho más
+        refuerzo que la parte superior, sin tener que codificar reglas distintas por cada nivel de altura.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Abre las válvulas y observa el chorro según la profundidad</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose" id="btn10b">🚿 Abrir válvulas</button>
+        </div>
+        <canvas id="c10b" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> el tanque tiene tres orificios a distinta profundidad. El chorro
+          inferior sale con más fuerza y llega más lejos porque P = ρgh es mayor ahí — la clásica
+          demostración de presión hidrostática.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S11A — PRESIÓN Y VELOCIDAD DE UN FLUIDO ====================== -->
+<article class="entry" id="s11a">
+  <div class="entry-head">
+    <div class="week-mark">11</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Mecánica de Fluidos · Relación entre Presión y Velocidad de un Fluido</div>
+      <h2>Tiro con efecto en un videojuego de fútbol</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En juegos de fútbol tipo <strong>FIFA</strong> o <strong>eFootball</strong>, un balón golpeado
+          "con efecto" (rotando) se curva en el aire: el giro hace que el aire se mueva más rápido en un
+          lado del balón y más lento en el otro, generando una diferencia de presión que empuja al balón
+          hacia el lado de menor presión.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">P₁ + ½·ρ·v₁² = P₂ + ½·ρ·v₂²</div>
+        <div class="eq-name">Principio de Bernoulli: a mayor velocidad del fluido, menor presión</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no una curva de trayectoria dibujada a mano</strong>
+        Una alternativa no física sería precalcular una trayectoria curva fija para "el tiro con efecto".
+        Eso no reaccionaría a la potencia, el ángulo o la cantidad de rotación real que aplicó el jugador.
+        Con el principio de Bernoulli relacionando v y P a cada lado del balón, la curvatura de la
+        trayectoria surge del giro y la velocidad reales del disparo, funcionando igual para un tiro suave
+        con mucho efecto que para uno potente con poco efecto, sin tener casos especiales.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Elige el sentido del efecto y dispara el balón</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose active" id="btn11a-der">Efecto derecha</button>
+          <button class="anim-btn rose" id="btn11a-izq">Efecto izquierda</button>
+          <button class="anim-btn rose" id="btn11a-sin">Sin efecto</button>
+          <button class="anim-btn rose" id="btn11a-play">⚽ Disparar</button>
+        </div>
+        <canvas id="c11a" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> las líneas de flujo se comprimen (mayor v, menor P) en el lado hacia
+          el que gira el balón, generando la fuerza lateral que curva la trayectoria — visible al comparar
+          "sin efecto" contra "efecto derecha/izquierda".
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ====================== S11B — CAVITACIÓN / GOLPE DE ARIETE ====================== -->
+<article class="entry" id="s11b">
+  <div class="entry-head">
+    <div class="week-mark">11</div>
+    <div class="entry-head-text">
+      <div class="eyebrow">Mecánica de Fluidos · Cavitación y Golpe de Ariete en Tuberías</div>
+      <h2>Simulador SCADA de una red de tuberías industriales</h2>
+    </div>
+  </div>
+  <div class="entry-grid">
+    <div>
+      <div class="block-label">Caso específico</div>
+      <div class="case-box">
+        <p>
+          En software de control industrial (SCADA) o en un simulador de infraestructura tipo
+          <strong>Factorio</strong> aplicado a tuberías de agua, cerrar una válvula de golpe no detiene
+          el flujo instantáneamente sin consecuencias: el agua que sigue avanzando genera un pico de
+          presión ("golpe de ariete") que se propaga por la tubería y puede llegar a reventarla si no se
+          modela correctamente.
+        </p>
+      </div>
+      <div class="block-label">Concepto físico aplicado</div>
+      <div class="eq-box">
+        <div class="eq">Δp = ρ·c·Δv</div>
+        <div class="eq-name">Ecuación de Joukowsky: sobrepresión por cierre brusco de una válvula</div>
+      </div>
+      <div class="block-label">Justificación</div>
+      <div class="justif">
+        <strong>Por qué física y no un cierre "instantáneo" sin efecto</strong>
+        La alternativa no física sería simplemente poner la velocidad del fluido en cero al cerrar la
+        válvula, como si no pasara nada más. Eso ignora por completo el riesgo real de ruptura de tuberías.
+        Con Δp = ρ·c·Δv, el simulador calcula automáticamente el pico de presión según qué tan rápido se
+        cierra la válvula y la velocidad del fluido, permitiendo advertir al usuario (o al jugador) cuándo
+        un cierre es demasiado brusco para la tubería que está usando.
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Elemento de apoyo — Simulación animada</div>
+      <div class="anim-box">
+        <div class="anim-label">Cierra la válvula y observa el pulso de presión</div>
+        <div class="anim-controls">
+          <button class="anim-btn rose" id="btn11b">🔧 Cerrar válvula</button>
+        </div>
+        <canvas id="c11b" width="400" height="300"></canvas>
+        <div class="anim-caption">
+          <strong>Animación:</strong> al cerrar la válvula, una onda de sobrepresión (Δp = ρcΔv) viaja
+          hacia atrás por la tubería, visible como un pulso de color que recorre el ducto y hace vibrar
+          sus paredes.
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
   </main>
 
 </div>
@@ -1727,6 +2087,571 @@ function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
     showDv1=false; showDv2=false;
     cancelAnimationFrame(raf);
     raf = requestAnimationFrame(draw);
+  });
+
+  raf = requestAnimationFrame(draw);
+})();
+
+// ─── ANIMACIÓN 9A: MAS amortiguado / animación "spring" de UI ───────────────
+(function(){
+  const canvas = document.getElementById('c9a');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  const MODES = {
+    bajo:    { gamma: 0.9,  label: 'Sub-amortiguado (γ < ω₀)' },
+    critico: { gamma: 5.0,  label: 'Amortiguamiento crítico (γ = ω₀)' },
+    sobre:   { gamma: 9.0,  label: 'Sobre-amortiguado (γ > ω₀)' },
+  };
+  let mode = 'bajo';
+  const OMEGA0 = 5.0; // rad/s natural
+  let t = 0;
+  let running = false;
+  let raf = null;
+  let lastTime = null;
+  const history = [];
+  const MAXH = 220;
+
+  function xOf(time){
+    const g = MODES[mode].gamma;
+    if(mode === 'bajo'){
+      const wd = Math.sqrt(Math.max(OMEGA0*OMEGA0 - g*g, 0.01));
+      return Math.exp(-g*time) * Math.cos(wd*time);
+    } else if(mode === 'critico'){
+      return (1 + g*time) * Math.exp(-g*time);
+    } else {
+      // sobre-amortiguado: suma de dos exponenciales
+      const r1 = -g + Math.sqrt(g*g - OMEGA0*OMEGA0);
+      const r2 = -g - Math.sqrt(g*g - OMEGA0*OMEGA0);
+      const c2 = r1/(r1-r2), c1 = 1-c2;
+      return c1*Math.exp(r1*time) + c2*Math.exp(r2*time);
+    }
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    const val = xOf(t); // -1..1 aprox
+    const cardX = W/2 + val * 110;
+
+    // riel guía
+    ctx.strokeStyle = 'rgba(242,102,126,0.15)';
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(60,70); ctx.lineTo(340,70); ctx.stroke();
+    // target
+    ctx.beginPath(); ctx.moveTo(W/2,55); ctx.lineTo(W/2,85);
+    ctx.strokeStyle = 'rgba(94,234,212,0.4)'; ctx.stroke();
+
+    // tarjeta
+    ctx.fillStyle = '#F2667E';
+    ctx.fillRect(cardX-26, 50, 52, 40);
+    ctx.strokeStyle = '#E7ECF5'; ctx.lineWidth = 1;
+    ctx.strokeRect(cardX-26, 50, 52, 40);
+
+    // gráfico x(t)
+    history.push(val);
+    if(history.length > MAXH) history.shift();
+    const gx0 = 40, gy0 = 230, gw = 320, gh = 70;
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.beginPath(); ctx.moveTo(gx0, gy0); ctx.lineTo(gx0+gw, gy0); ctx.stroke();
+    ctx.beginPath();
+    history.forEach((v,i)=>{
+      const px = gx0 + (i/MAXH)*gw;
+      const py = gy0 - v*gh*0.9;
+      if(i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+    });
+    ctx.strokeStyle = '#F2667E'; ctx.lineWidth = 2; ctx.stroke();
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 260, 40);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('Modo:', 14, 26);
+    ctx.fillStyle = '#F2667E';
+    ctx.fillText(MODES[mode].label, 62, 26);
+    ctx.fillStyle = '#8493B0';
+    ctx.fillText('x(t) → tiempo (gráfico inferior)', 14, 250-140);
+  }
+
+  function step(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = (ts-lastTime)/1000; lastTime = ts;
+    t += dt;
+    draw();
+    if(t < 3.2){ raf = requestAnimationFrame(step); }
+    else { running=false; }
+  }
+
+  function play(){
+    t = 0; history.length = 0; lastTime=null; running = true;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(step);
+  }
+
+  function setMode(m, btn){
+    mode = m;
+    document.querySelectorAll('#btn9a-bajo,#btn9a-critico,#btn9a-sobre').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    play();
+  }
+
+  document.getElementById('btn9a-bajo').addEventListener('click', function(){ setMode('bajo', this); });
+  document.getElementById('btn9a-critico').addEventListener('click', function(){ setMode('critico', this); });
+  document.getElementById('btn9a-sobre').addEventListener('click', function(){ setMode('sobre', this); });
+  document.getElementById('btn9a-play').addEventListener('click', play);
+
+  draw();
+})();
+
+// ─── ANIMACIÓN 9B: Péndulo de torsión / gimbal de cámara ────────────────────
+(function(){
+  const canvas = document.getElementById('c9b');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const CX = W/2, CY = H/2 + 10;
+
+  let theta = 0;      // rad
+  let omega = 0;
+  const KAPPA = 40;    // rigidez torsional
+  const B = 3.2;       // amortiguación
+  const I = 1;
+  let raf = null;
+  let lastTime = null;
+  let running = false;
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // soporte
+    ctx.strokeStyle = '#233155'; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.moveTo(CX, 40); ctx.lineTo(CX, 90); ctx.stroke();
+    ctx.fillStyle = '#8493B0';
+    ctx.fillRect(CX-30, 30, 60, 10);
+
+    // brazo del gimbal (rota theta)
+    ctx.save();
+    ctx.translate(CX, 100);
+    ctx.rotate(theta);
+
+    // cuerpo cámara
+    ctx.fillStyle = '#E7ECF5';
+    ctx.fillRect(-34, 0, 68, 44);
+    ctx.fillStyle = '#0B1220';
+    ctx.beginPath(); ctx.arc(0, 22, 13, 0, PI2); ctx.fill();
+    ctx.strokeStyle = '#F2667E'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(0, 22, 13, 0, PI2); ctx.stroke();
+
+    ctx.restore();
+
+    // referencia neutra
+    ctx.strokeStyle = 'rgba(94,234,212,0.3)'; ctx.lineWidth = 1; ctx.setLineDash([3,4]);
+    ctx.beginPath(); ctx.moveTo(CX, 90); ctx.lineTo(CX, 190); ctx.stroke(); ctx.setLineDash([]);
+
+    // viento (flechas) cuando se dispara
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 210, 58);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('θ  (ángulo)     :', 14, 26);
+    ctx.fillText('ω  (vel. ang.)  :', 14, 44);
+    ctx.fillStyle = '#F2667E';
+    ctx.fillText((theta*180/Math.PI).toFixed(1)+'°', 150, 26);
+    ctx.fillStyle = '#5EEAD4';
+    ctx.fillText(omega.toFixed(2)+' rad/s', 150, 44);
+
+    // gráfico pequeño de amplitud restante
+    const barW = clamp(Math.abs(theta)/0.9, 0, 1) * 300;
+    ctx.fillStyle = 'rgba(242,102,126,0.25)';
+    ctx.fillRect(40, 270, 320, 6);
+    ctx.fillStyle = '#F2667E';
+    ctx.fillRect(40, 270, barW, 6);
+  }
+
+  function step(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = Math.min((ts-lastTime)/1000, 0.033); lastTime = ts;
+    // I*theta'' + b*theta' + k*theta = 0
+    const alpha = (-KAPPA*theta - B*omega) / I;
+    omega += alpha*dt;
+    theta += omega*dt;
+    draw();
+    if(Math.abs(theta) > 0.003 || Math.abs(omega) > 0.01){
+      raf = requestAnimationFrame(step);
+    } else {
+      theta = 0; omega = 0; draw(); running=false;
+    }
+  }
+
+  document.getElementById('btn9b').addEventListener('click', ()=>{
+    if(running) return;
+    omega = 6.5; // impulso de la ráfaga
+    running = true; lastTime = null;
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(step);
+  });
+
+  draw();
+})();
+
+// ─── ANIMACIÓN 10A: Onda estacionaria en una cuerda ─────────────────────────
+(function(){
+  const canvas = document.getElementById('c10a');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const X0 = 40, X1 = 360, MID = H/2;
+  const AMP = 55;
+
+  let n = 1;
+  let t = 0;
+  let raf = null;
+  let lastTime = null;
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = (ts-lastTime)/1000; lastTime = ts;
+    t += dt;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // extremos fijos
+    ctx.fillStyle = '#8493B0';
+    ctx.fillRect(X0-4, MID-30, 4, 60);
+    ctx.fillRect(X1, MID-30, 4, 60);
+
+    // cuerda (onda estacionaria)
+    const L = X1 - X0;
+    const omega = 2 + n*0.9;
+    ctx.beginPath();
+    for(let px = X0; px <= X1; px += 2){
+      const xrel = (px - X0) / L; // 0..1
+      const y = MID + AMP * Math.sin(n*Math.PI*xrel) * Math.cos(omega*t);
+      if(px===X0) ctx.moveTo(px,y); else ctx.lineTo(px,y);
+    }
+    ctx.strokeStyle = '#F2667E'; ctx.lineWidth = 2.5; ctx.stroke();
+
+    // envolvente fantasma
+    ctx.beginPath();
+    for(let px = X0; px <= X1; px += 2){
+      const xrel = (px - X0) / L;
+      const y = MID + AMP * Math.sin(n*Math.PI*xrel);
+      if(px===X0) ctx.moveTo(px,y); else ctx.lineTo(px,y);
+    }
+    ctx.strokeStyle = 'rgba(242,102,126,0.15)'; ctx.lineWidth = 1; ctx.stroke();
+
+    // nodos y vientres
+    for(let k=0; k<=n; k++){
+      const xrel = k/n;
+      const px = X0 + xrel*L;
+      ctx.beginPath(); ctx.arc(px, MID, 4, 0, PI2);
+      ctx.fillStyle = '#F5A623'; ctx.fill(); // nodo
+    }
+    for(let k=0; k<n; k++){
+      const xrel = (k+0.5)/n;
+      const px = X0 + xrel*L;
+      const py = MID + AMP*Math.sin(n*Math.PI*xrel)*Math.cos(omega*t);
+      ctx.beginPath(); ctx.arc(px, py, 4, 0, PI2);
+      ctx.fillStyle = '#5EEAD4'; ctx.fill(); // vientre aprox
+    }
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 210, 58);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('Armónico n      :', 14, 26);
+    ctx.fillText('f_n = n·v/2L    :', 14, 44);
+    ctx.fillStyle = '#F2667E';
+    ctx.fillText(String(n), 150, 26);
+    ctx.fillStyle = '#5EEAD4';
+    ctx.fillText((n*110).toFixed(0)+' Hz (rel.)', 150, 44);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  function setN(newN, btn){
+    n = newN;
+    document.querySelectorAll('#btn10a-1,#btn10a-2,#btn10a-3,#btn10a-4').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  document.getElementById('btn10a-1').addEventListener('click', function(){ setN(1,this); });
+  document.getElementById('btn10a-2').addEventListener('click', function(){ setN(2,this); });
+  document.getElementById('btn10a-3').addEventListener('click', function(){ setN(3,this); });
+  document.getElementById('btn10a-4').addEventListener('click', function(){ setN(4,this); });
+
+  raf = requestAnimationFrame(draw);
+})();
+
+// ─── ANIMACIÓN 10B: Presión hidrostática / tanque con orificios ─────────────
+(function(){
+  const canvas = document.getElementById('c10b');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  const TANK = { x: 60, y: 40, w: 90, h: 200 };
+  const HOLES = [
+    { depth: 40,  color: '#5EEAD4' },
+    { depth: 110, color: '#F5A623' },
+    { depth: 180, color: '#F2667E' },
+  ];
+  let open = false;
+  let t = 0;
+  let raf = null;
+  let lastTime = null;
+  const drops = []; // {holeIdx, x, y, vx, vy}
+
+  function spawnDrops(dt){
+    HOLES.forEach((h, idx)=>{
+      const speed = Math.sqrt(2 * 9.8 * (h.depth/12)); // v ~ sqrt(2gh) escalado
+      if(Math.random() < 0.5){
+        drops.push({
+          idx, x: TANK.x + TANK.w, y: TANK.y + h.depth,
+          vx: speed*10, vy: -6, g: 220
+        });
+      }
+    });
+  }
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = Math.min((ts-lastTime)/1000, 0.033); lastTime = ts;
+    t += dt;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // agua dentro del tanque (gradiente de profundidad = presión)
+    const grad = ctx.createLinearGradient(0, TANK.y, 0, TANK.y+TANK.h);
+    grad.addColorStop(0, 'rgba(94,234,212,0.15)');
+    grad.addColorStop(1, 'rgba(94,234,212,0.55)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(TANK.x, TANK.y, TANK.w, TANK.h);
+
+    // pared del tanque
+    ctx.strokeStyle = '#8493B0'; ctx.lineWidth = 3;
+    ctx.strokeRect(TANK.x, TANK.y, TANK.w, TANK.h);
+
+    // orificios
+    HOLES.forEach(h=>{
+      ctx.fillStyle = open ? h.color : '#233155';
+      ctx.fillRect(TANK.x+TANK.w-3, TANK.y+h.depth-3, 8, 6);
+    });
+
+    if(open){
+      if(Math.random() < 0.9) spawnDrops(dt);
+      for(let i=drops.length-1; i>=0; i--){
+        const d = drops[i];
+        d.vy += d.g*dt;
+        d.x += d.vx*dt;
+        d.y += d.vy*dt;
+        ctx.beginPath(); ctx.arc(d.x, d.y, 2.4, 0, PI2);
+        ctx.fillStyle = HOLES[d.idx].color; ctx.fill();
+        if(d.x > W+10 || d.y > H+10) drops.splice(i,1);
+      }
+    }
+
+    // etiquetas de presión
+    ctx.font = '9px JetBrains Mono';
+    HOLES.forEach(h=>{
+      ctx.fillStyle = h.color;
+      ctx.fillText('P='+(h.depth*0.55).toFixed(0), TANK.x+TANK.w+14, TANK.y+h.depth+3);
+    });
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 230, 40);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('P(h) = ρ·g·h  →  a mayor h, mayor P', 14, 26);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  document.getElementById('btn10b').addEventListener('click', function(){
+    open = !open;
+    this.textContent = open ? '🚿 Cerrar válvulas' : '🚿 Abrir válvulas';
+  });
+
+  raf = requestAnimationFrame(draw);
+})();
+
+// ─── ANIMACIÓN 11A: Bernoulli / tiro con efecto ─────────────────────────────
+(function(){
+  const canvas = document.getElementById('c11a');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+
+  let spinDir = 1; // 1 derecha, -1 izquierda, 0 sin efecto
+  let playing = false;
+  let t = 0;
+  let raf = null;
+  let lastTime = null;
+  let ballX = 60, ballY = 220, ballAngle = 0;
+
+  function reset(){
+    ballX = 60; ballY = 220; t = 0; playing = false;
+  }
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = Math.min((ts-lastTime)/1000, 0.033); lastTime = ts;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // cancha
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(20,260); ctx.lineTo(380,260); ctx.stroke();
+
+    // arco
+    ctx.strokeStyle = '#8493B0'; ctx.lineWidth = 3;
+    ctx.strokeRect(340, 150, 30, 90);
+
+    if(playing){
+      t += dt;
+      const speed = 160;
+      ballX = 60 + speed*t;
+      const curve = spinDir * 0.5 * t*t * 40;
+      ballY = 220 - 10*t + curve*0;
+      const lateral = spinDir * Math.min(t,1.6) * Math.min(t,1.6) * 26;
+      ballAngle += 14*dt;
+      draw.lateral = lateral;
+      if(ballX > 360){ playing = false; }
+    }
+    const lateral = playing ? (spinDir * Math.min(t,1.6) * Math.min(t,1.6) * 26) : 0;
+    const by = 220 - lateral;
+
+    // líneas de flujo alrededor del balón (solo si hay efecto)
+    if(spinDir !== 0){
+      const compressSide = spinDir; // lado donde el aire va más rápido (mayor curvatura de líneas)
+      for(let i=-2;i<=2;i++){
+        const off = i*10;
+        ctx.beginPath();
+        const bend = (i*compressSide>0) ? 10 : 3;
+        ctx.moveTo(ballX-40, by+off);
+        ctx.quadraticCurveTo(ballX, by+off - compressSide*bend, ballX+40, by+off);
+        ctx.strokeStyle = (i*compressSide>0) ? 'rgba(94,234,212,0.35)' : 'rgba(242,102,126,0.2)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+
+    // balón
+    ctx.save();
+    ctx.translate(ballX, by);
+    ctx.rotate(ballAngle);
+    ctx.beginPath(); ctx.arc(0,0,9,0,PI2);
+    ctx.fillStyle = '#E7ECF5'; ctx.fill();
+    ctx.strokeStyle = '#233155'; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(-9,0); ctx.lineTo(9,0); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,-9); ctx.lineTo(0,9); ctx.stroke();
+    ctx.restore();
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 260, 40);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    const modeLabel = spinDir===1 ? 'Efecto → derecha (v↑ arriba)' : spinDir===-1 ? 'Efecto → izquierda (v↑ abajo)' : 'Sin efecto (línea recta)';
+    ctx.fillText(modeLabel, 14, 26);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  function setSpin(s, btn){
+    spinDir = s;
+    document.querySelectorAll('#btn11a-der,#btn11a-izq,#btn11a-sin').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  document.getElementById('btn11a-der').addEventListener('click', function(){ setSpin(1,this); });
+  document.getElementById('btn11a-izq').addEventListener('click', function(){ setSpin(-1,this); });
+  document.getElementById('btn11a-sin').addEventListener('click', function(){ setSpin(0,this); });
+  document.getElementById('btn11a-play').addEventListener('click', ()=>{ reset(); playing = true; });
+
+  raf = requestAnimationFrame(draw);
+})();
+
+// ─── ANIMACIÓN 11B: Golpe de ariete en tubería ──────────────────────────────
+(function(){
+  const canvas = document.getElementById('c11b');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const PIPE = { x: 30, y: 140, w: 300, h: 30 };
+
+  let valveClosed = false;
+  let pulseX = null;
+  let pulseSpeed = -420; // viaja hacia atrás (izquierda)
+  let flowOffset = 0;
+  let raf = null;
+  let lastTime = null;
+
+  function draw(ts){
+    if(!lastTime) lastTime = ts;
+    const dt = Math.min((ts-lastTime)/1000, 0.033); lastTime = ts;
+
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle = '#0B1220'; ctx.fillRect(0,0,W,H);
+
+    // tubería
+    ctx.fillStyle = 'rgba(94,234,212,0.12)';
+    ctx.fillRect(PIPE.x, PIPE.y, PIPE.w, PIPE.h);
+    ctx.strokeStyle = '#8493B0'; ctx.lineWidth = 3;
+    ctx.strokeRect(PIPE.x, PIPE.y, PIPE.w, PIPE.h);
+
+    // flujo (rayas moviéndose) si la válvula está abierta
+    if(!valveClosed){
+      flowOffset = (flowOffset + dt*80) % 24;
+    }
+    ctx.strokeStyle = 'rgba(94,234,212,0.3)'; ctx.lineWidth = 2;
+    for(let x = PIPE.x - flowOffset; x < PIPE.x+PIPE.w; x += 24){
+      ctx.beginPath();
+      ctx.moveTo(x, PIPE.y+8); ctx.lineTo(x+14, PIPE.y+8);
+      ctx.moveTo(x, PIPE.y+22); ctx.lineTo(x+14, PIPE.y+22);
+      ctx.stroke();
+    }
+
+    // válvula (extremo derecho)
+    ctx.fillStyle = valveClosed ? '#F2667E' : '#5EEAD4';
+    ctx.fillRect(PIPE.x+PIPE.w-6, PIPE.y-8, 10, PIPE.h+16);
+
+    // pulso de sobrepresión
+    if(pulseX !== null){
+      pulseX += pulseSpeed*dt;
+      const grad = ctx.createRadialGradient(pulseX, PIPE.y+PIPE.h/2, 2, pulseX, PIPE.y+PIPE.h/2, 26);
+      grad.addColorStop(0, 'rgba(242,102,126,0.9)');
+      grad.addColorStop(1, 'rgba(242,102,126,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.arc(pulseX, PIPE.y+PIPE.h/2, 26, 0, PI2); ctx.fill();
+
+      // pared "vibrando"
+      const wob = Math.sin(ts/40)*3;
+      ctx.strokeStyle = '#F2667E'; ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(pulseX, PIPE.y-4+wob); ctx.lineTo(pulseX, PIPE.y+PIPE.h+4-wob);
+      ctx.stroke();
+
+      if(pulseX < PIPE.x - 20) pulseX = null;
+    }
+
+    // HUD
+    ctx.fillStyle = 'rgba(11,18,32,0.82)';
+    ctx.fillRect(8, 8, 260, 58);
+    ctx.font = '10px JetBrains Mono'; ctx.fillStyle = '#8493B0';
+    ctx.fillText('Válvula  :', 14, 26);
+    ctx.fillText('Δp = ρ·c·Δv', 14, 44);
+    ctx.fillStyle = valveClosed ? '#F2667E' : '#5EEAD4';
+    ctx.fillText(valveClosed ? 'CERRADA' : 'ABIERTA', 90, 26);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  document.getElementById('btn11b').addEventListener('click', function(){
+    valveClosed = !valveClosed;
+    this.textContent = valveClosed ? '🔧 Abrir válvula' : '🔧 Cerrar válvula';
+    if(valveClosed){
+      pulseX = PIPE.x + PIPE.w - 10;
+    }
   });
 
   raf = requestAnimationFrame(draw);
